@@ -1,10 +1,19 @@
 <table>
-	<tr><th>Titulo</th>  <th>Texto</th> </tr>
+	<tr>
+		<th>Titulo</th>  
+		<th>Texto</th> 
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 	<% @posts.each do |post| %>
 
 		<tr>
 			<td><%= post.title %></td>
 			<td><%= post.text %></td>
+			<td><%= link_to 'Mostrar', post_path(post) %></td>
+			<td><%= link_to 'Editar', edit_post_path(post) %></td>
+			<td><%= link_to 'Borrar', post_path(post), method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
 		</tr>
 	<% end %>
 </table>
