@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 before_filter :authenticate_user!
   def index
     @posts = Post.all
+    @date = Time.now
   end
 
   
@@ -48,6 +49,7 @@ before_filter :authenticate_user!
     def post_params
       params.require(:post).permit(:title, :text)
     end
+
 
 
 
